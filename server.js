@@ -11,13 +11,17 @@ app.get('/', function (req, res) {
   res.sendFile(__dirname + '/app/index.html');
 });
 
+app.get('/posts', function (req,res) {
+  res.send(posts);
+})
+
 app.get('/post/:id', function(req, res) {
   if (posts.length <= req.params.id || req.params.id < 0) {
     res.statusCode = 404;
     return res.send('Error 404: No post found');
   }
 
-  var p = posts.blogPosts[req.params.id];
+  var p = posts[req.params.id];
     res.json(p);
 });
 
@@ -36,7 +40,7 @@ app.post('/posts', function(req,res) {
     res.json(true);
 });
 
-app.delete('/blog/:id', function(req,res) {
+app.delete('/post/:id', function(req,res) {
   if (posts.length <= req.params.id) {
     res.statusCode = 404;
     return res.send('Error 404: No post found.');

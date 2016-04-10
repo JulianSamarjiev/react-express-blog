@@ -61,6 +61,14 @@
 	
 	var _Header2 = _interopRequireDefault(_Header);
 	
+	var _BlogPost = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./components/BlogPost.jsx\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+	
+	var _BlogPost2 = _interopRequireDefault(_BlogPost);
+	
+	var _NewBlogPost = __webpack_require__(/*! ./components/NewBlogPost.jsx */ 168);
+	
+	var _NewBlogPost2 = _interopRequireDefault(_NewBlogPost);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -69,35 +77,42 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	var BlogPost = function (_React$Component) {
-	  _inherits(BlogPost, _React$Component);
+	var data = [{
+	  "id": 1,
+	  "title": "Batman",
+	  "text": "More Batman"
+	}, {
+	  "id": 2,
+	  "title": "Superman",
+	  "text": "More Superman"
+	}];
 	
-	  function BlogPost() {
-	    _classCallCheck(this, BlogPost);
+	var App = function (_React$Component) {
+	  _inherits(App, _React$Component);
 	
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(BlogPost).apply(this, arguments));
+	  function App() {
+	    _classCallCheck(this, App);
+	
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(App).apply(this, arguments));
 	  }
 	
-	  _createClass(BlogPost, [{
+	  _createClass(App, [{
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
 	        'div',
 	        null,
 	        _react2.default.createElement(_Header2.default, null),
-	        _react2.default.createElement(
-	          'p',
-	          null,
-	          'React Express App'
-	        )
+	        _react2.default.createElement(_BlogPost2.default, { data: this.props.data }),
+	        _react2.default.createElement(_NewBlogPost2.default, null)
 	      );
 	    }
 	  }]);
 	
-	  return BlogPost;
+	  return App;
 	}(_react2.default.Component);
 	
-	(0, _reactDom.render)(_react2.default.createElement(BlogPost, null), document.getElementById('content'));
+	(0, _reactDom.render)(_react2.default.createElement(App, { data: data }), document.getElementById('content'));
 
 /***/ },
 /* 1 */
@@ -20595,8 +20610,8 @@
 	        null,
 	        _react2.default.createElement(
 	          'p',
-	          null,
-	          'This is the header component'
+	          { className: 'header' },
+	          'React - Express, example blog app'
 	        )
 	      );
 	    }
@@ -20606,6 +20621,61 @@
 	}(_react2.default.Component);
 	
 	exports.default = Header;
+
+/***/ },
+/* 167 */,
+/* 168 */
+/*!****************************************!*\
+  !*** ./app/components/NewBlogPost.jsx ***!
+  \****************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactDom = __webpack_require__(/*! react-dom */ 32);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var NewBlogPost = function (_React$Component) {
+	  _inherits(NewBlogPost, _React$Component);
+	
+	  function NewBlogPost() {
+	    _classCallCheck(this, NewBlogPost);
+	
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(NewBlogPost).apply(this, arguments));
+	  }
+	
+	  _createClass(NewBlogPost, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        'This is where we add blog posts from.'
+	      );
+	    }
+	  }]);
+	
+	  return NewBlogPost;
+	}(_react2.default.Component);
+	
+	exports.default = NewBlogPost;
 
 /***/ }
 /******/ ]);

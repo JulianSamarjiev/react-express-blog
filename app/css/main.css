@@ -1,0 +1,10 @@
+/* General */
+body {
+  font-family: 'Raleway', sans-serif;
+}
+
+/* Header */
+.header {
+  font-size: 24px; /* FIXME: change PX to something else */
+  text-align: center;
+}
