@@ -1,6 +1,5 @@
 var express = require('express');
 var bodyParser = require('body-parser');
-// Remove if not needed
 var posts = require('./blog-data.json');
 var fs = require('fs');
 var path = require('path');
