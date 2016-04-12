@@ -1,55 +1,60 @@
 import React from 'react';
 import {render} from 'react-dom';
+import Header from './components/Header.jsx';
+import Post from './components/Post.jsx';
+import Posts from './components/Posts.jsx';
+import SubmitPost from './components/SubmitPost.jsx';
 
-class Post extends React.Component {
-  render () {
-    var postNodes = this.props.data.map(function(post) {
-      return (
-        <div>
-          <h2>{this.props.title}</h2>
-          <p>{this.props.text}</p>
-        </div>
-      );
-    });
-    return (
-      <div>
-        {postNodes}
-      </div>
-    );
+class Blog extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {data: []};
   }
-}
-
-class App extends React.Component {
   loadPostsFromServer() {
     $.ajax({
-      url: this.props.url,
+      url: '/posts',
       dataType: 'json',
       cache: false,
-      success(data) {
+      success: function(data) {
         this.setState({data: data});
       }.bind(this),
-      error(xhr, status, err) {
-        console.log(this.props.url, status, err.toString());
+      error: function(xhr, status, err) {
+        console.error(url, status, err.toString());
       }.bind(this)
     });
-  },
-  state =  {
-    return {data []};
-  },
+  }
+  handlePostSubmit(post) {
+    $.ajax({
+      url: '/posts',
+      dataType: 'json',
+      contentType: "application/json",
+      type: 'POST',
+      data: JSON.stringify(post),
+      success: function(data) {
+        // TODO: Investigate a possible clash between
+        // ES6 and jQuery syntax
+        // this.setState({data: data});
+      }.bind(this),
+      error: function(xhr, status, err) {
+        console.error('/posts', status, err.toString());
+      }.bind(this)
+    });
+  }
   componentDidMount() {
     this.loadPostsFromServer();
-    setInterval(this.loadPostsFromServer, this.props.pollInterval);
-  },
-  render () {
+  }
+  render() {
     return (
       <div>
-        <Post data={this.state.data} />
+        <Header />
+        <Posts data={this.state.data} />
+        <SubmitPost onPostSubmit={this.handlePostSubmit} />
       </div>
-    );
+    )
   }
-}
+};
 
 render(
-  <App url="/posts" pollInterval={2000} />,
+  <Blog />,
   document.getElementById('root')
 );
