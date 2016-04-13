@@ -5,8 +5,8 @@ export default class Post extends React.Component {
   render() {
     return (
       <div>
-        <h2>{this.props.title}</h2>
-        <span>By {this.props.author}</span>
+        <h3>{this.props.title}</h3>
+        <span><i>By {this.props.author}</i></span>
         <p>{this.props.text}</p>
         <hr></hr>
       </div>

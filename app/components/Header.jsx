@@ -5,7 +5,7 @@ export default class Header extends React.Component {
   render() {
     return (
       <div>
-        <h1 className="blog-title">React - Express Blog</h1>
+        <h1 className="header-title">React - Express Blog</h1>
       </div>
     );
   }

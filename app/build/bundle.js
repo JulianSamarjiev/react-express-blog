@@ -20648,7 +20648,7 @@
 	        null,
 	        _react2.default.createElement(
 	          'h1',
-	          { className: 'blog-title' },
+	          { className: 'header-title' },
 	          'React - Express Blog'
 	        )
 	      );
@@ -20705,15 +20705,19 @@
 	        'div',
 	        null,
 	        _react2.default.createElement(
-	          'h2',
+	          'h3',
 	          null,
 	          this.props.title
 	        ),
 	        _react2.default.createElement(
 	          'span',
 	          null,
-	          'By ',
-	          this.props.author
+	          _react2.default.createElement(
+	            'i',
+	            null,
+	            'By ',
+	            this.props.author
+	          )
 	        ),
 	        _react2.default.createElement(
 	          'p',
@@ -20869,29 +20873,39 @@
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
-	        'form',
-	        { onSubmit: this.handleSubmit.bind(this) },
-	        _react2.default.createElement('input', {
-	          type: 'text',
-	          placeholder: 'Your title',
-	          value: this.state.title,
-	          onChange: this.handleTitleChange.bind(this)
-	        }),
-	        _react2.default.createElement('br', null),
-	        _react2.default.createElement('input', {
-	          type: 'text',
-	          placeholder: 'Your name',
-	          value: this.state.author,
-	          onChange: this.handleAuthorChange.bind(this)
-	        }),
-	        _react2.default.createElement('br', null),
-	        _react2.default.createElement('textarea', {
-	          placeholder: 'Blog post content',
-	          value: this.state.text,
-	          onChange: this.handleTextChange.bind(this)
-	        }),
-	        _react2.default.createElement('br', null),
-	        _react2.default.createElement('input', { type: 'submit', value: 'Post' })
+	        'div',
+	        { className: 'submit-post' },
+	        _react2.default.createElement(
+	          'h2',
+	          { className: 'submit-post-title' },
+	          'Submit a new post'
+	        ),
+	        _react2.default.createElement(
+	          'form',
+	          { onSubmit: this.handleSubmit.bind(this) },
+	          _react2.default.createElement('input', {
+	            type: 'text',
+	            placeholder: 'Post title',
+	            value: this.state.title,
+	            onChange: this.handleTitleChange.bind(this)
+	          }),
+	          _react2.default.createElement('br', null),
+	          _react2.default.createElement('input', {
+	            type: 'text',
+	            placeholder: 'Author name',
+	            value: this.state.author,
+	            onChange: this.handleAuthorChange.bind(this)
+	          }),
+	          _react2.default.createElement('br', null),
+	          _react2.default.createElement('textarea', {
+	            rows: '10',
+	            placeholder: 'Post content',
+	            value: this.state.text,
+	            onChange: this.handleTextChange.bind(this)
+	          }),
+	          _react2.default.createElement('br', null),
+	          _react2.default.createElement('input', { type: 'submit', value: 'Post' })
+	        )
 	      );
 	    }
 	  }]);

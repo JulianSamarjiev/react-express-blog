@@ -31,30 +31,34 @@ export default class SubmitPost extends React.Component {
   }
   render() {
     return (
-      <form onSubmit={this.handleSubmit.bind(this)}>
-        <input
-          type="text"
-          placeholder="Your title"
-          value={this.state.title}
-          onChange={this.handleTitleChange.bind(this)}
-        />
-        <br></br>
-        <input
-          type="text"
-          placeholder="Your name"
-          value={this.state.author}
-          onChange={this.handleAuthorChange.bind(this)}
-        />
-        <br></br>
-        <textarea
-          placeholder="Blog post content"
-          value={this.state.text}
-          onChange={this.handleTextChange.bind(this)}
-        >
-        </textarea>
-        <br></br>
-        <input type="submit" value="Post" />
-      </form>
+      <div className="submit-post">
+        <h2 className="submit-post-title">Submit a new post</h2>
+        <form onSubmit={this.handleSubmit.bind(this)}>
+          <input
+            type="text"
+            placeholder="Post title"
+            value={this.state.title}
+            onChange={this.handleTitleChange.bind(this)}
+          />
+          <br></br>
+          <input
+            type="text"
+            placeholder="Author name"
+            value={this.state.author}
+            onChange={this.handleAuthorChange.bind(this)}
+          />
+          <br></br>
+          <textarea
+            rows="10"
+            placeholder="Post content"
+            value={this.state.text}
+            onChange={this.handleTextChange.bind(this)}
+          >
+          </textarea >
+          <br></br>
+          <input type="submit" value="Post" />
+        </form>
+      </div>
     )
   }
 }
