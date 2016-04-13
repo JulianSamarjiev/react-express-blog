@@ -4,14 +4,14 @@ An example React/Express app, with a database simulated by a static JSON file.
 
 When you submit a new post from the form, currently you need to update the page to see the changes.
 
-## Technologies used:
+## Technologies used
 
 - React
 - Express
 - Webpack
 - Babel
 
-## WIP:
+## WIP
 
 DELETE API call
 
