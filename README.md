@@ -1,8 +1,8 @@
 # React/Express - practice blog app
 
-An example React/Express app, with a database simulated by a static JSON file.
+An example React/Express app, with a RESTful API and a database simulated by a local JSON file.
 
-When you submit a new post from the form, currently you need to update the page to see the changes.
+Note: When you submit a new post from the form, currently you need to update the page to see the changes.
 
 ## Technologies used
 
